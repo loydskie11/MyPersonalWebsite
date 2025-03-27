@@ -1,0 +1,437 @@
+body {
+    font-family: 'Orbitron', sans-serif;
+    min-height: 90vh;
+    background-image: url('imgs/cyberpunk1.avif');
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1100px;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: -1;
+    
+}
+nav {
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    top: 0;
+    left: 0;
+    color: #00EB1C;
+    height: 70px;
+    width: 100%;
+    z-index: 1000;
+    text-align: left;
+    padding-left: 30px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+.logo-img{
+    width: 260px;
+    height: 130px;
+    margin-left: -20px;
+}
+#proj-name {
+    font-weight: bold;
+    margin-left: 20px;
+}
+#nav-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+}
+#nav-buttons div {
+    transition: color 0.3s ease;
+}
+#nav-buttons .active {
+    color: #00EB1C; 
+}
+.right-btns {
+    display: flex;
+    flex-direction: row;
+    margin-left: 700px;
+    color: white; 
+    gap: 10px;
+}
+.nav-logo {
+    width: 30px;
+    height: 30px;
+}
+
+.home-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 50px;
+    color: #00EB1C;
+    max-width: 50%; 
+    gap: 20px;
+    cursor: pointer;
+}
+.home-main-header {
+    font-size: 3rem;
+    font-weight: 700;
+    transition: transform 0.3s ease-in-out;
+}
+.home-main-header:hover {
+    transform: scale(1.05);
+}
+.first-part {
+    color: #00EB1C;
+}
+.second-part {
+    color: white;
+}
+.home-first-subheader {
+    color: white;
+    transition: transform 0.3s ease-in-out;
+}
+.home-first-subheader:hover {
+    transform: scale(1.05);
+}
+.carousel-container {
+    margin-right: 100px;
+    width: 30%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    display: block; 
+    box-shadow: 0 0 0 0.5px #00EB1C;
+    transition: transform 0.3s ease-in-out;
+}
+.carousel-container:hover {
+    transform: scale(1.1);
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    flex-shrink: 0;
+
+}
+
+/* Navigation Buttons */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    width: 45px;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+
+/* portfolio styles */
+.portfolio-container {
+    width: 70%;
+    height: 500px;
+    margin-top: 125px;
+    background: rgba(182, 165, 165, 0.054);
+    border-radius: 20px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 0 0 0.5px #00EB1C;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    cursor: pointer;
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+#portfolio-title {
+    font-weight: 600;
+    font-size: xx-large;
+    color: #00EB1C;
+    margin-top: 50px;
+    transition: transform 0.3s ease-in-out;
+}
+#portfolio-title:hover {
+    transform: scale(1.05);
+}
+.portfolio-content {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%; 
+}
+.portfolio-button {
+    width: 80%;
+    height: 40px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+}
+.portfolio-content button {
+    outline: none;
+    transition: transform 0.3s ease-in-out;
+}
+.portfolio-content button:hover {
+    transform: scale(1.05);
+}
+.portfolio-button:hover {
+    border: 1px solid #00EB1C; 
+    
+}
+
+/* favorites style */
+#favoritesDiv {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin-top: 70px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: auto;
+    height: 100vh;
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+#content {
+    padding-bottom: 50px;
+    width: 100%;
+}
+
+#favoritesDiv::-webkit-scrollbar {
+    display: none;
+}
+
+#gallery-header {
+    text-align: center;
+    color: #00EB1C;
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+#art-exhibit {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start; /* Align items to the top to allow dynamic height */
+}
+
+.artwork {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 300px;
+    margin: 50px 10px 20px 10px; 
+    cursor: pointer;
+    border-radius: 10px;
+    background: none; 
+    transition: transform 0.3s ease-in-out;
+}
+.artwork:hover {
+    transform: scale(1.05);
+}
+
+.image-container {
+    position: relative;
+    width: 300px;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px; /* Rounded top corners */
+    box-shadow: 0 0 0 0.5px #00EB1C;
+}
+
+/* Apply background images to image-container instead of artwork */
+#artwork-1 .image-container {
+    background-image: url('imgs/karinaae.png');
+}
+
+#artwork-2 .image-container {
+    background-image: url('imgs/winterae.png');
+}
+
+#artwork-3 .image-container {
+    background-image: url('imgs/anghel.jpg');
+}
+
+#artwork-4 .image-container {
+    background-image: url('imgs/ef40.png');
+}
+
+#artwork-5 .image-container {
+    background-image: url('imgs/cmiygl.png');
+}
+
+#artwork-6 .image-container {
+    background-image: url('imgs/sainz.png');
+}
+
+#artwork-7 .image-container {
+    background-image: url('imgs/daniel.png');
+}
+
+#artwork-8 .image-container {
+    background-image: url('imgs/hcflow.png');
+}
+
+#artwork-9 .image-container {
+    background-image: url('imgs/panther.jpg');
+}
+
+.heart1 {
+    background-size: 50px 50px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.599);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 5;
+    line-height: 68px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+.heart1:hover {
+    transform: scale(1.05); /* Add a subtle scale effect on hover */
+}
+.tosmall {
+    width: 28px;
+    height: 28px;
+}
+
+.grey {
+    background-color: #00eb1bbd;
+    color: black;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    z-index: 6;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    backdrop-filter: blur(5px);
+}
+
+.grey:hover {
+    background-color: rgba(0, 0, 0, 0.721);
+    color: white;
+}
+
+.boldy {
+    font-weight: 400;
+    font-size: large;
+    position: absolute;
+    left: 35%;
+    top: 30%;
+}
+
+.comments-section {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    margin-top: 10px;
+}
+
+.comments-list {
+    color: white;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.comments-list li {
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.comment-input-container {
+    display: flex;
+    gap: 10px;
+    
+}
+
+.comment-input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #00EB1C;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+.comments-section button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    background-color: #00EB1C;
+    color: black;
+    cursor: pointer;
+    box-shadow: 0 0 0 0.5px #00EB1C;
+}
+
+.comments-section button:hover {
+    background-color: rgb(34, 32, 32);
+    color: #00EB1C;
+}

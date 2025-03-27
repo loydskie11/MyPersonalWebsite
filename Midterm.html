@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Midterm Project Saquilon</title>
+        <link rel="stylesheet" href="style.css"/>
+        <script src="codebehind.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <nav>
+            <!-- <h3 id="proj-name">Loyd's Project</h3> -->
+            
+            <img class="logo-img" src="imgs/logo.png" alt="logo">
+            
+            <div id="nav-buttons">
+                <div id="homeBtn" style="margin-left: 40px;" onclick="showHome()">Home</div>
+                <div id="portfolioBtn" onclick="togglePortfolio()">Portfolio</div>
+                <div id="favoritesBtn" onclick="toggleFavorites()">Favorites</div>
+                <div class="right-btns">
+                    <div style="margin-top: 8px;">Follow me:</div>
+                    <div><a href="https://www.facebook.com/laluna.saquilon"><img src="imgs/fb-logo.png" alt="" class="nav-logo"></a></div>
+                    <div><a href="https://www.instagram.com/flaminghotsisig/"><img src="imgs/ig-logo.png" alt="" class="nav-logo"></a></div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- home page huhu -->
+         <div class="home-container" id="homeDiv">
+            <div class="home-text">
+                <div class="home-main-header" >
+                    <span class="first-part">Loyd's</span>
+                    <span class="second-part">Personal Website</span>
+                </div>
+                <div class="home-first-subheader">
+                    <span class="second-part">This website is a midterm project for the subject</span>
+                    <span class="first-part">Integrative Programming <br>and Technologies,</span>
+                    <span class="second-part">designed to showcase the integration of HTML, CSS, <br>and JavaScript concepts. This serves as a</span>
+                    <span class="first-part">portfolio</span>
+                    <span class="second-part">of the<br>functions and activities discussed in class.</span>
+                </div>
+            </div>
+            <!-- Carousel Container -->
+            <div class="carousel-container">
+                <div class="carousel-slide">
+                    <img src="imgs/pfp1.jpg" alt="Image 1">
+                    <img src="imgs/pfp2.jpg" alt="Image 2">
+                    <img src="imgs/pfp3.jpg" alt="Image 3">
+                    <img src="imgs/pfp4.jpg" alt="Image 4">
+                    <img src="imgs/pfp5.jpg" alt="Image 5">
+                </div>
+            </div>
+         </div>
+
+        <!-- portfolio section huhu -->
+        <div class="portfolio-container" id="portfolioDiv" style="display: none;">
+            <div class="portfolio-content">
+                <div id="portfolio-title">Function Integration</div>
+                <button class="portfolio-button" style="margin-top: 50px; color: black; background-color: #00EB1C;">Pick your choice</button>
+                <button class="portfolio-button" onclick="temperatureConverter()">1. Temperature Converter</button>
+                <button class="portfolio-button" onclick="longerWord()">2. The Longer Word</button>
+                <button class="portfolio-button" onclick="myBirthstone()">3. Know My Birthstone</button>
+                <button class="portfolio-button" onclick="basicOps()">4. Basic Operations</button>
+                <button class="portfolio-button" onclick="computeAccelaration()">5. Compute for Accelaration</button>
+            </div>
+        </div>
+
+        <!-- favorites -->
+<div id="favoritesDiv" style="display: none;">
+    <div id="content"> <!-- Main content container -->
+        <h2 id="gallery-header">Favorite Self-made Designs</h2> <!-- Gallery heading -->
+        <div id="art-exhibit"> <!-- Container for all artwork items -->
+            
+            <!-- Artwork items start here -->
+            <div id="artwork-1" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">ae Karina</span></div> <!-- Artwork title and artist -->
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div> <!-- Like button -->
+                </div>
+                <div class="comments-section"> <!-- Comment section moved below -->
+                    <ul class="comments-list"></ul> <!-- List to display comments -->
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment..."> <!-- Comment input field -->
+                        <button onclick="addComment(this)">Post</button> <!-- Button to add comment -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Similar structure for other artworks -->
+            <div id="artwork-2" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">ae Winter</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="artwork-3" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">Isang Anghel</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="artwork-4" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">Ferrari F40</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="artwork-5" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">CMIYGL</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button class="postBtn" onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="artwork-6" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">Carlos Sainz</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="artwork-7" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">Daniel Caesar</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="artwork-8" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">Flow</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="artwork-9" class="artwork">
+                <div class="image-container">
+                    <div class="grey"><span class="boldy">All The Stars</span></div>
+                    <div class="heart1" onclick="toggleLike(this)"><img src="imgs/heart.png" class="tosmall"></div>
+                </div>
+                <div class="comments-section">
+                    <ul class="comments-list"></ul>
+                    <div class="comment-input-container">
+                        <input type="text" class="comment-input" placeholder="Add a comment...">
+                        <button onclick="addComment(this)">Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+</html>
