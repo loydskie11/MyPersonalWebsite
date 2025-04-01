@@ -56,10 +56,13 @@ nav {
 #nav-buttons .active {
     color: #00EB1C; 
 }
+#homeBtn:hover, #portfolioBtn:hover, #favoritesBtn:hover, #exitBtn:hover {
+    color:#00EB1C;
+}
 .right-btns {
     display: flex;
     flex-direction: row;
-    margin-left: 700px;
+    margin-left: 650px;
     color: white; 
     gap: 10px;
 }

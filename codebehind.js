@@ -1,3 +1,6 @@
+function closeSite() {
+    self.close();
+}
 function temperatureConverter() {
     let tempc = parseFloat(prompt("Enter temperature in degree celsius"));
 
