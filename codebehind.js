@@ -1,19 +1,46 @@
 function closeSite() {
     self.close();
 }
-function temperatureConverter() {
-    let tempc = parseFloat(prompt("Enter temperature in degree celsius"));
 
-    if (isNaN(tempc)) {
-        alert("Invalid input. Enter a number.");
-    } else {
-        let tempf = ((tempc*1.8) + 32).toFixed(2);
-        alert(`The temperature ${tempc}C in Fahrenheit is ${tempf}F.`);
+function temperatureConverter() {
+    while (true) {
+        let input = prompt("Enter temperature in degree Celsius:").trim();
+
+        if (input === null || input === "") { 
+            alert("Operation canceled.");
+            return;
+        }
+
+        let tempc = parseFloat(input);
+        if (!isNaN(tempc)) {
+            let tempf = ((tempc * 1.8) + 32).toFixed(2);
+            alert(`The temperature ${tempc}\u00B0C in Fahrenheit is ${tempf}\u00B0F.`);
+            return;
+        }
+        alert("Invalid input. Please enter a valid number.");
     }
 }
+
 function longerWord() {
-    let word1 = prompt("Enter first word").trim();
-    let word2 = prompt("Enter second word").trim();
+    let word1, word2;
+
+    function getValidWord(promptMessage) {
+        while (true) {
+            let word = prompt(promptMessage);
+            if (word === null) {
+                alert("Operation canceled.");
+                return null;
+            }
+            word = word.trim();
+            if (word.length > 0) return word;
+            alert("Invalid input. Please enter a non-empty word.");
+        }
+    }
+
+    word1 = getValidWord("Enter first word:");
+    if (word1 === null) return; 
+    word2 = getValidWord("Enter second word:");
+    if (word2 === null) return; 
 
     if (word1.length > word2.length) {
         alert(`The word "${word1}" is longer than "${word2}".`);
@@ -23,106 +50,155 @@ function longerWord() {
         alert(`The words "${word1}" and "${word2}" have equal length.`);
     }
 }
-function myBirthstone() {
-    let month = prompt("Please enter your birth month").trim().toLowerCase();
-    let birthstone = "";
 
-    switch (month) {
-        case "january": 
-            birthstone = "Garnet";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "february":
-            birthstone = "Amethyst";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "march": 
-            birthstone = "Aquamarine";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "april": 
-            birthstone = "Diamond";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "may": 
-            birthstone = "Emerald";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "june": 
-            birthstone = "Alexandrite & Pearl";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "july": 
-            birthstone = "Ruby";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "august":
-            birthstone = "Peridot";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "september":
-            birthstone = "Sapphire";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "october": 
-            birthstone = "Opal & Tourmaline";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "november": 
-            birthstone = "Topaz & Citrine";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        case "december":
-            birthstone = "Turquoise, Tanzanite & Zircon";
-            alert(`Your birthstone is ${birthstone}.`);
-            break;
-        default:
-            alert("Invalid Input. Please enter a valid month.");
+function myBirthstone() {
+    let month;
+
+    while (true) {
+        month = prompt("Please enter your birth month:");
+        if (month === null) {
+            alert("Operation canceled.");
             return;
+        }
+
+        month = month.trim().toLowerCase();
+        if (month === "") {
+            alert("Invalid input. Please enter a non-empty month name.");
+            continue;
+        }
+
+        let birthstone;
+        switch (month) {
+            case "january": birthstone = "Garnet"; break;
+            case "february": birthstone = "Amethyst"; break;
+            case "march": birthstone = "Aquamarine"; break;
+            case "april": birthstone = "Diamond"; break;
+            case "may": birthstone = "Emerald"; break;
+            case "june": birthstone = "Alexandrite & Pearl"; break;
+            case "july": birthstone = "Ruby"; break;
+            case "august": birthstone = "Peridot"; break;
+            case "september": birthstone = "Sapphire"; break;
+            case "october": birthstone = "Opal & Tourmaline"; break;
+            case "november": birthstone = "Topaz & Citrine"; break;
+            case "december": birthstone = "Turquoise, Tanzanite & Zircon"; break;
+            default:
+                alert("Invalid input. Please enter a valid month (e.g., January, February, etc.).");
+                continue;
+        }
+        alert(`Your birthstone is ${birthstone}.`);
+        return;
     }
 }
+
 function basicOps() {
-    let ope = prompt("Choose an operator:\nM - Multiplication or *\nD - Division or /\nA - Addition or +\nS - Subtraction or -").toUpperCase().trim();
-    let num1 = parseFloat(prompt("Enter first number"));
-    let num2 = parseFloat(prompt("Enter second number"));
+    let ope;
+   
+    while (true) {
+        ope = prompt("Choose an operator:\nM - Multiplication or *\nD - Division or /\nA - Addition or +\nS - Subtraction or -");
+        if (ope === null) {
+            alert("Operation canceled.");
+            return;
+        }
+
+        ope = ope.trim().toUpperCase();
+        if (["M", "*", "D", "/", "A", "+", "S", "-"].includes(ope)) {
+            break;
+        }
+
+        alert("Invalid operator. Please enter a valid one.");
+    }
+
+    let num1, num2;
+
+    function getValidNumber(promptMessage) {
+        while (true) {
+            let input = prompt(promptMessage);
+            if (input === null) {
+                alert("Operation canceled.");
+                return null;
+            }
+
+            let num = parseFloat(input);
+            if (!isNaN(num)) return num;
+
+            alert("Invalid number. Please enter a valid number.");
+        }
+    }
+
+    num1 = getValidNumber("Enter first number:");
+    if (num1 === null) return;
+    num2 = getValidNumber("Enter second number:");
+    if (num2 === null) return;
+
     let ans;
+    let symbol;
+
     switch (ope) {
         case "M":
         case "*":
             ans = num1 * num2;
-            ope = "*";
-            alert(`The answer for (${num1} ${ope} ${num2}) is ${ans}.`);
+            symbol = "*";
             break;
         case "D":
         case "/":
+            if (num2 === 0) {
+                alert("Error: Division by zero is not allowed.");
+                return;
+            }
             ans = num1 / num2;
-            ope = "/";
-            alert(`The answer for (${num1} ${ope} ${num2}) is ${ans}.`);
+            symbol = "/";
             break;
         case "A":
         case "+":
             ans = num1 + num2;
-            ope = "+";
-            alert(`The answer for (${num1} ${ope} ${num2}) is ${ans}.`);
+            symbol = "+";
             break;
         case "S":
         case "-":
             ans = num1 - num2;
-            ope = "-";
-            alert(`The answer for (${num1} ${ope} ${num2}) is ${ans}.`);
+            symbol = "-";
             break;
         default:
-            alert("No matching operator. Enter a valid one.");
+            alert("Unexpected error.");
+            return;
     }
+    alert(`The answer for (${num1} ${symbol} ${num2}) is ${ans}.`);
 }
-function computeAccelaration() {
-    let iv = parseFloat(prompt("Enter the initial velocity in m/s"));
-    let fv = parseFloat(prompt("Enter the final velocity in m/s"));
-    let changeTime = parseFloat(prompt("Enter the change in time in seconds"));
 
-    let acce = ((fv - iv)/changeTime).toFixed(2);
-    alert(`The accelaration is ${acce}`);
+function computeAcceleration() {
+    function getValidNumber(promptMessage) {
+        while (true) {
+            let input = prompt(promptMessage);
+            
+            if (input === null) {
+                alert("Operation canceled.");
+                return null;
+            }
+
+            let num = parseFloat(input.trim());
+            if (!isNaN(num)) return num;
+
+            alert("Invalid input. Please enter a valid number.");
+        }
+    }
+
+    let iv = getValidNumber("Enter the initial velocity in m/s:");
+    if (iv === null) return;
+    let fv = getValidNumber("Enter the final velocity in m/s:");
+    if (fv === null) return;
+
+    let changeTime;
+    while (true) {
+        changeTime = getValidNumber("Enter the change in time in seconds:");
+        if (changeTime === null) return;
+        if (changeTime !== 0) break;
+        
+        alert("Time change cannot be zero. Please enter a valid time.");
+    }
+    let acce = ((fv - iv) / changeTime).toFixed(2);
+    alert(`The acceleration is ${acce} m/s\u00B2.`);
 }
+
 function hideAll() {
     var homeDiv = document.getElementById("homeDiv");
     var portfolioDiv = document.getElementById("portfolioDiv");
