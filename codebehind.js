@@ -1,6 +1,4 @@
-function closeSite() {
-    self.close();
-}
+
 
 function temperatureConverter() {
     while (true) {
@@ -321,4 +319,16 @@ function addComment(button) {
         }, 0);
         content.style.minHeight = `${totalHeight + 100}px`; 
     }
+}
+
+function showExitModal() {
+    document.getElementById("exitModal").style.display = "block";
+}
+
+function closeExitModal() {
+    document.getElementById("exitModal").style.display = "none";
+}
+
+function closeSite() {
+    self.close(); 
 }
