@@ -119,7 +119,9 @@ function basicOps() {
             }
 
             let num = parseFloat(input);
-            if (!isNaN(num)) return num;
+            if (!isNaN(num) && input.trim() === num.toString()) {
+                return num;
+            }
 
             alert("Invalid number. Please enter a valid number.");
         }
@@ -176,7 +178,9 @@ function computeAcceleration() {
             }
 
             let num = parseFloat(input.trim());
-            if (!isNaN(num)) return num;
+            if (!isNaN(num) && input.trim() === num.toString()) {
+                return num;
+            }
 
             alert("Invalid input. Please enter a valid number.");
         }
